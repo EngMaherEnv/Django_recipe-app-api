@@ -7,3 +7,9 @@ docker-compose up
 #rebuild the container and the docker file 
 docker-compose build
 http://127.0.0.1:8000/
+
+#creating app 
+docker-compose run --rm app sh -c "python manage.py startapp core"
+
+#check for linting :
+docker-compose run --rm app sh -c "flake8"
