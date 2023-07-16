@@ -26,3 +26,10 @@ docker volume ls
 #remove old migrations:
 docker-compose down
 docker volume rm [name]
+
+#create superuser
+docker-compose run --rm app sh -c "python manage.py createsuperuser"
+
+#my super user:
+email: maher@example.com
+pass: mahertest123
