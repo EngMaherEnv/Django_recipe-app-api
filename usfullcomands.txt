@@ -2,14 +2,27 @@
 docker-compose run --rm app sh -c "python manage.py test"
 
 #run the app :
-docker-compose up 
+docker-compose up
 
-#rebuild the container and the docker file 
+#rebuild the container and the docker file
 docker-compose build
 http://127.0.0.1:8000/
 
-#creating app 
+#creating app
 docker-compose run --rm app sh -c "python manage.py startapp core"
 
 #check for linting :
 docker-compose run --rm app sh -c "flake8"
+
+#make migrations
+docker-compose run --rm app sh -c "python manage.py makemigrations"
+
+#wait for db and applay migrations to db
+docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py migrate"
+
+#to viwe old migrations:
+docker volume ls
+
+#remove old migrations:
+docker-compose down
+docker volume rm [name]
