@@ -2,6 +2,8 @@
 
 . This project develops a Recipe API using Python Django framework.
 
+. CI/CD pipline with Github actions.
+
 . Test Driven Development (TDD) is implemented to ensure reliable functionality.
 
 . The API is documented using Swagger for clear endpoint information.
